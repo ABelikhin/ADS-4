@@ -1,15 +1,7 @@
-#include <cassert>
-
-struct SYM
-{
-    char ch;
-    int  prior;
-};
-
-template<typename T>
 class TPQueue
 {
-private:
+  // Сюда помещается описание структуры "Очередь с приоритетами"
+  private:
     T* arr;          // массив с данными
     int size;        // максимальное количество элементов в очереди (размер массива)
     int begin,       // начало очереди
@@ -21,11 +13,11 @@ public:
     ~TPQueue();                 // деструктор
 
     void push(const T&); // добавить элемент в очередь
-   
+
     T pop();              // удалить элемент из очереди
-   
+
     T get() const;        // прочитать первый элемент
-   
+
     bool isEmpty() const;      // пустая ли очередь?
     bool isFull() const;       // заполнен ли массив?
 };
@@ -54,7 +46,7 @@ void TPQueue<T>::push(const T& item)
 {
     // проверяем, ести ли свободное место в очереди
     assert(count < size);
-  
+
     arr[end] = item;
     int i = end;
     while (i > 0) {
@@ -112,3 +104,10 @@ bool TPQueue<T>::isFull() const
 {
     return count == size;
 }
+
+struct SYM
+{
+	char ch;
+	int  prior;
+}; 
+};
